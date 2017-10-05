@@ -59,7 +59,7 @@ public class Productsstream {
      * @param ruta String indicando la ruta del fichero
      * @param skip numero de objetos que se saltará al leer
      */
-    public static void leer(String ruta,int skip) {
+    public static Product leer(String ruta,int skip) {
         Product po3=new Product();        
         try {
             DataInputStream dis = new DataInputStream(new BufferedInputStream(new FileInputStream(ruta)));
@@ -74,12 +74,14 @@ public class Productsstream {
             po3.setDescricion(dis.readUTF());
             po3.setPrezo(dis.readDouble());
             System.out.println("Codigo: "+po3.getCodigo()+", descripcion: "+po3.getDescricion()+", Prezo: "+po3.getPrezo()+"€");
-            //dis.close();
+            dis.close();
+            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productsstream.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(Productsstream.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return po3;
     }
     
 }
