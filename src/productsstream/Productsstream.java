@@ -52,12 +52,12 @@ public class Productsstream {
         } catch (IOException ex) {
             Logger.getLogger(Productsstream.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    
+    }    
     /**
      * 
      * @param ruta String indicando la ruta del fichero
-     * @param skip numero de objetos que se saltará al leer
+     * @param skip numero de objetos(lineas) que se saltará al leer
+     * @return Product el objeto Product creado al leer la linea correspondiente del fichero
      */
     public static Product leer(String ruta,int skip) {
         Product po3=new Product();        
@@ -82,6 +82,5 @@ public class Productsstream {
             Logger.getLogger(Productsstream.class.getName()).log(Level.SEVERE, null, ex);
         }
         return po3;
-    }
-    
+    }    
 }
